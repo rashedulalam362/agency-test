@@ -1,6 +1,18 @@
-import React from "react";
+async function getData() {
+  const res = await fetch('https://agency.teamrabbil.com/api/AllProject')
+  
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
 
-const TeamList = () => {
+async function TeamList  () {
+  const data=await getData()
+  console.log(data)
   return (
     <>
       <section>
